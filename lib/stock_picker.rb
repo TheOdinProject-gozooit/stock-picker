@@ -1,3 +1,4 @@
+# Return the pair of day representing the best day to buy and to sell
 def stock_picker(stock_prices)
   lowest = { day: 0, price: stock_prices[0] }
   highest = { day: 0, price: stock_prices[0] }
