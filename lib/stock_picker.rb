@@ -16,3 +16,9 @@ def stock_picker(stock_prices)
   end
   profit[:day]
 end
+
+# Add TOP example so can be run with "ruby ./stock_picker.rb"
+
+arr = [17, 3, 6, 9, 15, 8, 6, 1, 10]
+puts "Using stock picker for #{arr} :"
+puts stock_picker(arr) # return [1, 4]
