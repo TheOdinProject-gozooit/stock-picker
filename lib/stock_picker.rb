@@ -1,18 +1,18 @@
-def stock_picker(arr)
-  lower = { index: 0, value: arr[0] }
-  higher = { index: 0, value: arr[0] }
-  profit = { index: [0, 0], value: 0 }
-  arr.each_with_index do |value, index|
-    if value < lower[:value]
-      lower = { index: index, value: value }
-      higher = { index: index, value: value }
+def stock_picker(stock_prices)
+  lower = { day: 0, price: stock_prices[0] }
+  higher = { day: 0, price: stock_prices[0] }
+  profit = { day: [0, 0], price: 0 }
+  stock_prices.each_with_index do |price, day|
+    if price < lower[:price]
+      lower = { day: day, price: price }
+      higher = { day: day, price: price }
+    elsif price > higher[:price]
+      higher = { day: day, price: price }
     end
-    if value > higher[:value]
-      higher = { index: index, value: value }
-    end
-    if higher[:value] - lower[:value] > profit[:value]
-      profit = { index: [lower[:index], higher[:index]], value: higher[:value] - lower[:value] }
+
+    if higher[:price] - lower[:price] > profit[:price]
+      profit = { day: [lower[:day], higher[:day]], price: higher[:price] - lower[:price] } 
     end
   end
-  profit[:index]
+  profit[:day]
 end
